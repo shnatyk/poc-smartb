@@ -1,0 +1,30 @@
+@media (min-width: 1200px) {
+    .section__content {
+        padding: 0;
+        width: 1230px;
+    }
+}
+
+/* --top */
+.section--top {
+    background: #4D5D69;
+}
+
+.section--top .section__content {
+    padding: 30px 0 90px;
+}
+
+/* --main */
+.section--main {
+    position: relative;
+}
+
+.section--main .section__content {
+    background: #FFFFFF;
+    border-radius: 3px;
+    box-shadow: 0 5px 18px 0 rgba(75,84,94,0.1), 0 2px 4px 0 rgba(75,84,94,0.1); /* #4B545E */
+    left: 50%;
+    padding: 60px;
+    position: absolute;
+    transform: translate(-50%, -90px);
+}

@@ -1,0 +1,114 @@
+.camp-row {
+    color: #454e56;
+    display: flex;
+    font-size: 13px;
+    letter-spacing: 0.2px;
+}
+
+.camp-row > * {
+    margin: 0 15px;
+}
+
+/* --even */
+.camp-row--even {
+    background: #ffffff;
+}
+
+/* --odd */
+.camp-row--odd {
+    background: #fafbfc;
+}
+
+/* --header */
+.camp-row--header {
+    background: #f5f7f9;
+    color: #8b9aa6;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+/* __status */
+.camp-row__status {
+    flex-basis: 35px;
+    margin-left: 0;
+}
+
+/* __name */
+.camp-row__name {
+    flex-basis: 0;
+    flex-grow: 1;
+}
+
+/* __impressions */
+.camp-row__impressions {
+    flex-basis: 80px;
+}
+
+/* __clicks */
+.camp-row__clicks {
+    flex-basis: 55px;
+}
+
+/* __spend */
+.camp-row__spend {
+    flex-basis: 55px;
+}
+
+/* __revenue */
+.camp-row__revenue {
+    flex-basis: 65px;
+}
+
+/* __roi */
+.camp-row__roi {
+    flex-basis: 45px;
+}
+
+/* __profit */
+.camp-row__profit {
+    flex-basis: 55px;
+ }
+
+.camp-row--loss .camp-row__profit {
+    color: #bac4cb;
+}
+.camp-row--loss .camp-row__profit {
+    color: #f35973;
+}
+.camp-row--gain .camp-row__profit {
+    color: #23d978;
+}
+
+/* __daily-spend */
+.camp-row__daily-spend {
+    flex-basis: 75px;
+}
+.camp-row--ok-spend .camp-row__daily-spend {
+    color: #23d978;
+}
+.camp-row--warning-spend .camp-row__daily-spend {
+    color: #fbbb00;
+}
+.camp-row--danger-spend .camp-row__daily-spend {
+    color: #f35973;
+}
+
+/* __actions */
+.camp-row__actions {
+    display: flex;
+    flex-basis: 100px;
+    justify-content: space-between;
+    margin-right: 0;
+}
+
+/* .camp-btn */
+.camp-row .camp-btn {
+    opacity: 0;
+    visibility: hidden;
+    transition: .25s all ease;
+}
+
+.camp-row:hover .camp-btn {
+    opacity: 1;
+    visibility: visible;
+}
