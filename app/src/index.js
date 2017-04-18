@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
+
+import 'bootstrap/dist/css/bootstrap.css';
+import './styles.css';
+import PageOverview from './pages/PageOverview/index';
 
 ReactDOM.render(
-  <App />,
-  document.getElementById('root')
+    <PageOverview />,
+    document.getElementById('root')
 );
