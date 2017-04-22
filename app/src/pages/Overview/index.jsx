@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Table } from 'reactstrap';
+import FontAwesome from 'react-fontawesome';
 
 import BounceLoader from './../../components/BounceLoader/index';
 import Page from './../../components/Page/index';
+import TitleBox from './components/TitleBox/index';
 import './styles.css';
 
 class Overview extends Component {
@@ -28,6 +30,7 @@ class Overview extends Component {
         return (
             <Page mods={['overview']}>
 
+                <ComponentTitle title="BouncyLoader" />
                 <BounceLoader show={true} message={'loading'}>
                     <div style={{fontSize: '24px', marginBottom: '60px', textAlign: 'center'}}>
                         <br />
@@ -39,7 +42,17 @@ class Overview extends Component {
                     </div>
                 </BounceLoader>
 
-                <Table striped>
+                <ComponentTitle title="TitleBox" />
+                <TitleBox name="Performance snapshot" icon="bar-chart">
+                    children
+                </TitleBox>
+
+                <ComponentTitle title="TitleBox --alone" />
+                <TitleBox mods={['alone']} name="Active Campaigns" icon="bullhorn">
+                    children
+                </TitleBox>
+
+                <Table striped style={{marginTop: '30px'}}>
                     <thead>
                     <tr>
                         <th>status</th>
@@ -72,6 +85,20 @@ class Overview extends Component {
 // const Campaign = ({campaign}) => (
 //     <li>{campaign.title}</li>
 // );
+
+const ComponentTitle = ({icon = 'cubes', title}) => (
+    <div style={{
+        margin: '40px 0 10px',
+        fontSize: '18px'}}>
+
+        <FontAwesome name={icon} style={{
+            color: '#f14f6b',
+            marginRight: '10px',
+            fontSize: '24px'}}/>
+        <span>{title}</span>
+
+    </div>
+);
 
 export default Overview;
 
