@@ -1,17 +1,25 @@
-import React, { Component } from 'react';
+import React, { PropTypes } from 'react';
 
-import * as BEM from './../../services/bem';
+import * as BEM from '../../services/helpers/bem';
+import Section from './../../components/Section/index';
+import Topbar from './../../components/Topbar/index';
 import './styles.css';
 
-class Page extends Component {
-    render() {
-        const name = "page";
-        return (
-            <div className={ BEM.namify(name, this.props.mods) }>
-                {this.props.children}
-            </div>
-        );
-    }
+const blockName = 'page';
+
+const Page = ({mods, children}) => (
+    <div className={BEM.namify(blockName, mods)}>
+        <Section mods={['top']}>
+            <Topbar />
+        </Section>
+        <Section mods={['main']}>
+            {children}
+        </Section>
+    </div>
+);
+
+Page.propTypes = {
+    mods: PropTypes.array
 }
 
 export default Page;
