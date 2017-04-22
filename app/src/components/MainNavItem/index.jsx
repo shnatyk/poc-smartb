@@ -9,14 +9,18 @@ const blockName = 'main-nav-item';
 
 const MainNavItem = ({item}) => (
     <Route path={item.url} children={({ match }) => (
+
         <div className={match ? BEM.namify(blockName, item.mods) + ' ' + blockName + '--active' : BEM.namify(blockName, item.mods)}>
+
             <div className={blockName + '__fake-txt'}>{item.txt}</div>
             <Link to={item.url} className={blockName + '__box'}>
                 <FontAwesome className={blockName + '__icon'} name={item.icon} />
                 <div className={blockName + '__txt'}>{item.txt}</div>
             </Link>
             <FontAwesome className={blockName + '__caret'} name='caret-up' />
+
         </div>
+
     )}/>
 );
 

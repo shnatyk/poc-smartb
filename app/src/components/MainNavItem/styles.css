@@ -73,7 +73,8 @@
 }
 
 .main-nav-item__caret:before {
-    bottom: -5px;
+    bottom: -7px;
+    font-size: 21px;
     left: 50%;
     position: absolute;
     transform: translateX(-50%);
