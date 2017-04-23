@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import FontAwesome from 'react-fontawesome';
 
-import * as BEM from '../../../../../../services/helpers/bem';
+import * as BEM from '../../../../services/helpers/bem';
 import './styles.css';
 
 const propTypes = {

@@ -1,5 +1,5 @@
 .camp-row {
-    color: #263038;
+    color: #454e56;
     display: flex;
     font-size: 13px;
     letter-spacing: 0.2px;
@@ -17,6 +17,14 @@
 /* --odd */
 .camp-row--odd {
     background: #fafbfc;
+}
+
+/* --header */
+.camp-row--header {
+    background: #f5f7f9;
+    color: #8b9aa6;
+    font-size: 10px;
+    text-transform: uppercase;
 }
 
 /* __status */
@@ -58,10 +66,12 @@
 
 /* __profit */
 .camp-row__profit {
-    color: #bac4cb;
     flex-basis: 55px;
-
  }
+
+.camp-row--loss .camp-row__profit {
+    color: #bac4cb;
+}
 .camp-row--loss .camp-row__profit {
     color: #f35973;
 }
@@ -71,8 +81,10 @@
 
 /* __daily-spend */
 .camp-row__daily-spend {
-    color: #23d978;
     flex-basis: 75px;
+}
+.camp-row--ok-spend .camp-row__daily-spend {
+    color: #23d978;
 }
 .camp-row--warning-spend .camp-row__daily-spend {
     color: #fbbb00;
