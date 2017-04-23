@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Table } from 'reactstrap';
-import FontAwesome from 'react-fontawesome';
 
-import BounceLoader from './../../components/BounceLoader/index';
 import Page from './../../components/Page/index';
 import TitleBox from './components/TitleBox/index';
 import './styles.css';
@@ -11,7 +9,7 @@ import './styles.css';
 class Overview extends Component {
     constructor() {
         super();
-        this.state = { campaigns: []}
+        this.state = { campaigns: [] }
     }
 
     componentDidMount() {
@@ -19,9 +17,9 @@ class Overview extends Component {
 
         setTimeout(() => {
             axios
-                .get("http://poc-smartb-api.getsandbox.com/campaigns/active")
+                .get("http://poc-smartb-api.getsandbox.com/overview")
                 .then(function (result) {
-                    _this.setState({campaigns: result.data});
+                    _this.setState({campaigns: result.data.campaigns});
                 });
         }, 2000);
     }
@@ -30,75 +28,46 @@ class Overview extends Component {
         return (
             <Page mods={['overview']}>
 
-                <ComponentTitle title="BouncyLoader" />
-                <BounceLoader show={true} message={'loading'}>
-                    <div style={{fontSize: '24px', marginBottom: '60px', textAlign: 'center'}}>
-                        <br />
-                        Simple div
-                        <br />
-                        to show loader example
-                        <br />
-                        blablalbllasva daldasld lasdl alsdlasdlas
-                    </div>
-                </BounceLoader>
-
-                <ComponentTitle title="TitleBox" />
-                <TitleBox name="Performance snapshot" icon="bar-chart">
-                    children
-                </TitleBox>
-
-                <ComponentTitle title="TitleBox --alone" />
                 <TitleBox mods={['alone']} name="Active Campaigns" icon="bullhorn">
                     children
                 </TitleBox>
 
-                <Table striped style={{marginTop: '30px'}}>
+                <Table>
                     <thead>
-                    <tr>
-                        <th>status</th>
-                        <th>campaign name</th>
-                    </tr>
+                        <tr>
+                            <th>status</th>
+                            <th>campaign name</th>
+                            <th>impressions</th>
+                            <th>clicks</th>
+                            <th>spend</th>
+                            <th>revenue</th>
+                            <th>roi</th>
+                            <th>profit</th>
+                            <th>daily spend</th>
+                            <th></th>
+                        </tr>
                     </thead>
                     <tbody>
-                        {Object.keys(this.state.campaigns).map(key => (
-                            <tr key={key}>
-                                <th>{this.state.campaigns[key].id}</th>
-                                <th>{this.state.campaigns[key].title}</th>
+                        {this.state.campaigns.map((camp) => (
+                            <tr key={camp.id}>
+                                <th>{camp.isActive.toString()}</th>
+                                <th>{camp.name}</th>
+                                <th>{camp.total.impressions}</th>
+                                <th>{camp.total.clicks}</th>
+                                <th>{camp.total.spend}</th>
+                                <th>{camp.total.revenue}</th>
+                                <th>{camp.total.roi}</th>
+                                <th>{camp.total.profit}</th>
+                                <th>{camp.total.dailySpend}</th>
                             </tr>
                         ))}
                     </tbody>
                 </Table>
 
-
-                {/*<ul>*/}
-                    {/*{Object.keys(this.state.campaigns).map(key => (*/}
-                        {/*<Campaign key={key} campaign={this.state.campaigns[key]} />*/}
-                    {/*))}*/}
-                {/*</ul>*/}
-
-
             </Page>
         );
     }
 }
-
-// const Campaign = ({campaign}) => (
-//     <li>{campaign.title}</li>
-// );
-
-const ComponentTitle = ({icon = 'cubes', title}) => (
-    <div style={{
-        margin: '40px 0 10px',
-        fontSize: '18px'}}>
-
-        <FontAwesome name={icon} style={{
-            color: '#f14f6b',
-            marginRight: '10px',
-            fontSize: '24px'}}/>
-        <span>{title}</span>
-
-    </div>
-);
 
 export default Overview;
 

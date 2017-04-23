@@ -10,7 +10,7 @@ class BounceLoader extends Component {
         return (
             <Loader {...this.props}
                     message={spinner}
-                    backgroundStyle={{backgroundColor: '#FFF', opacity: '0.9'}} />
+                    backgroundStyle={{backgroundColor: 'rgba(255,255,255, 0.8)'}} />
         );
     }
 }
