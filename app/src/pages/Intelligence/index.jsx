@@ -7,7 +7,7 @@ class Intelligence extends Component {
     render() {
         return (
             <Page mods={['intelligence']}>
-                INTELLIGENCE
+               INTELLIGENCE
             </Page>
         );
     }

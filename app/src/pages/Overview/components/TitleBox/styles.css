@@ -1,6 +1,7 @@
 .title-box {
     background: #f5f7f9;
     display: flex;
+    padding: 15px;
 }
 
 /* __name */
@@ -9,7 +10,7 @@
     font-size: 16px;
     letter-spacing: 0.5px;
     margin-left: 10px;
-    padding-top: 4px;
+    /*padding-top: 2px;*/
 }
 
 /* __icon */
@@ -24,4 +25,8 @@
     flex-grow: 1;
     justify-content: flex-end;
     margin-left: 30px;
+}
+
+.title-box__icon.fa-bullhorn + .title-box__name {
+    padding-top: 5px;
 }

@@ -13,7 +13,7 @@ class Support extends Component {
             <Page mods={['support']}>
 
                 <ComponentTitle title="BouncyLoader" />
-                <BounceLoader show={true} message={'loading'}>
+                <BounceLoader show={true}>
                     <div style={{fontSize: '24px', marginBottom: '60px', textAlign: 'center'}}>
                         Simple div to show loader,
                         <br />
@@ -22,11 +22,7 @@ class Support extends Component {
                 </BounceLoader>
 
                 <ComponentTitle title="TitleBox" />
-                <TitleBox name="Performance snapshot" icon="bar-chart">
-                    children
-                </TitleBox>
-                <br />
-                <TitleBox mods={['alone']} name="Component name" icon="rocket">
+                <TitleBox titleTxt="Component name" icon="rocket">
                     children
                 </TitleBox>
 

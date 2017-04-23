@@ -1,0 +1,26 @@
+.camp-btn {
+    align-items: center;
+    border: 2px solid #f1f5f7;
+    border-radius: 5px;
+    color: #c1c9cf;
+    display: flex;
+    font-size: 18px;
+    justify-content: center;
+    height: 42px;
+    width: 42px;
+    transition: .3s all ease;
+}
+
+.camp-btn:hover {
+    color: #ffffff;
+    background: #0084fb;
+    border-color: #0084fb;
+    text-decoration: none;
+}
+
+.camp-btn:focus {
+    color: #ffffff;
+    background: #00427d;
+    border-color: #00427d;
+    text-decoration: none;
+}

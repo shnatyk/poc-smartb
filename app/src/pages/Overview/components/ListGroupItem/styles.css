@@ -1,9 +1,25 @@
 .list-group-item {
     border: 2px solid #ecf1f4;
+    margin-bottom: -2px;
+}
+
+.list-group-item:first-child {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
 }
 
 .list-group-item:last-child {
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+}
+
+/* .title-box */
+.list-group-item.title-box {
+    padding: 18px 15px 18px 28px;
+}
+
+/* .camp-row */
+.list-group-item.camp-row {
+    padding: 15px 15px 15px 28px;
 }
 
