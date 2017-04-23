@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Table } from 'reactstrap';
+import { ListGroup, Table } from 'reactstrap';
 
 import Page from './../../components/Page/index';
-import TitleBox from './components/TitleBox/index';
+import ListGroupTitle from './components/ListGroupTitle/index';
 import './styles.css';
 
 class Overview extends Component {
@@ -28,9 +28,13 @@ class Overview extends Component {
         return (
             <Page mods={['overview']}>
 
-                <TitleBox mods={['alone']} name="Active Campaigns" icon="bullhorn">
-                    children
-                </TitleBox>
+                <ListGroup>
+                    <ListGroupTitle
+                        titleTxt="Active Campaigns"
+                        icon="bullhorn">
+                        some actions
+                    </ListGroupTitle>
+                </ListGroup>
 
                 <Table>
                     <thead>
@@ -50,15 +54,15 @@ class Overview extends Component {
                     <tbody>
                         {this.state.campaigns.map((camp) => (
                             <tr key={camp.id}>
-                                <th>{camp.isActive.toString()}</th>
-                                <th>{camp.name}</th>
-                                <th>{camp.total.impressions}</th>
-                                <th>{camp.total.clicks}</th>
-                                <th>{camp.total.spend}</th>
-                                <th>{camp.total.revenue}</th>
-                                <th>{camp.total.roi}</th>
-                                <th>{camp.total.profit}</th>
-                                <th>{camp.total.dailySpend}</th>
+                                <td>{camp.isActive.toString()}</td>
+                                <td>{camp.name}</td>
+                                <td>{camp.total.impressions}</td>
+                                <td>{camp.total.clicks}</td>
+                                <td>{camp.total.spend}</td>
+                                <td>{camp.total.revenue}</td>
+                                <td>{camp.total.roi}</td>
+                                <td>{camp.total.profit}</td>
+                                <td>{camp.total.dailySpend}</td>
                             </tr>
                         ))}
                     </tbody>
