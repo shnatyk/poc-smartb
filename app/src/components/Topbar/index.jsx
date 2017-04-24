@@ -33,8 +33,8 @@ const mainNavItems = [
 
 const Topbar = () => (
     <Row className="topbar">
-        <Col xs="2" />
-        <Col xs="8">
+        <Col xs="12" md="2" className="topbar__logo" />
+        <Col xs="12" md="8" className="topbar__menu">
             {mainNavItems.map((item, index) => (
                 <MainNavItem
                     key={index}
@@ -44,7 +44,7 @@ const Topbar = () => (
                     txt={item.txt}/>
             ))}
         </Col>
-        <Col xs="2" />
+        <Col md="2" className="topbar__profile" />
     </Row>
 );
 

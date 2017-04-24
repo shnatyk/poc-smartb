@@ -21,7 +21,7 @@ const App = ({ store }) => (
                     <Topbar />
                 </Section>
 
-                <Section blockMods={['main']}>
+                <Section blockMods={['main']} className="clearfix">
                     <Redirect from="/" to="/overview" />
                     <Route exact path="/overview" component={OverviewPage} />
                     <Route path="/campaigns" component={CampaignsPage} />

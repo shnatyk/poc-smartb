@@ -5,6 +5,7 @@ import * as BEM from './../../helpers/bem';
 import './styles.css';
 
 const propTypes = {
+    className: PropTypes.string,
     blockName: PropTypes.string,
     blockMods: PropTypes.array,
     children: PropTypes.node
@@ -16,12 +17,14 @@ const defaultProps = {
 
 const Section = (props) => {
     const {
+        className,
         blockName,
         blockMods,
         children
     } = props;
 
-    const classes = BEM.classify(blockName, blockMods);
+    const bemClasses = BEM.classify(blockName, blockMods);
+    const classes = className ? className + ' ' + bemClasses : bemClasses;
 
     const section = (
         <section className={classes}>

@@ -1,0 +1,19 @@
+/* __menu */
+.topbar__menu {
+    text-align: center;
+}
+@media (min-width: 992px) {
+    .topbar__menu {
+        text-align: left;
+    }
+}
+
+/* __profile */
+.topbar__profile {
+    display: none;
+}
+@media (min-width: 768px) {
+    .topbar__profile {
+        display: block;
+    }
+}

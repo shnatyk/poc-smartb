@@ -37,6 +37,18 @@ const CampaignsTable = (props) => {
         spend: 'spend'
     };
 
+    const tableSummaryData = {
+        status: 'totals',
+        name: '',
+        clicks: '132758',
+        dailySpend: '',
+        impressions: '97.21M',
+        profit: '110.12',
+        revenue: '3016',
+        roi: '',
+        spend: '12654'
+    };
+
     const campaignsTable = (
         <ListGroup>
             <TitleBox tag="li"
@@ -59,22 +71,11 @@ const CampaignsTable = (props) => {
                          btn2={<CampBtn icon="sliders" />}
                 />
             )) : ''}
-
-            {/*<CampRow tag="li"*/}
-                     {/*className="list-group-item"*/}
-                     {/*blockMods={['header']}*/}
-                     {/*data={{*/}
-                         {/*status: 'totals',*/}
-                         {/*name: '',*/}
-                         {/*clicks: this.state.total.clicks,*/}
-                         {/*dailySpend: '',*/}
-                         {/*impressions: this.state.total.impressions,*/}
-                         {/*profit: this.state.total.profit,*/}
-                         {/*revenue: this.state.total.revenue,*/}
-                         {/*roi: '',*/}
-                         {/*spend: this.state.total.spend*/}
-                     {/*}}*/}
-            {/*/>*/}
+            <CampRow tag="li"
+                     className="list-group-item"
+                     blockMods={['header']}
+                     data={tableSummaryData}
+            />
         </ListGroup>
     );
 
@@ -132,3 +133,5 @@ export function blockModsFromCampaign(campaign, extraMods) {
 
     return blockMods;
 }
+
+
