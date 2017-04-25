@@ -8,6 +8,7 @@ import { getCampaigns, getCampaignsChart, getIsFetching } from './../../reducers
 import BounceLoader from '../../components/BounceLoader/index';
 import CampaignsChart from './components/CampaignsChart/index';
 import CampaignsTable from './components/CampaignsTable/index';
+import CampaignsTotal from './components/CampaignsTotal/index';
 
 import './styles.css';
 
@@ -28,13 +29,18 @@ class OverviewPage extends Component {
         return (
             <div className="page page--campaigns">
 
-                <BounceLoader show={true} message={'loading'}>
+                <BounceLoader show={true}>
+                    <CampaignsTotal isLoading />
+                </BounceLoader>
+                <br />
+                <br />
+                <BounceLoader show={true}>
                     <CampaignsChart data={campaignsChart} isLoading />
                 </BounceLoader>
                 <br />
                 <br />
-                <BounceLoader show={true} message={'loading'}>
-                    <CampaignsTable campaigns={campaigns} />
+                <BounceLoader show={true} >
+                    <CampaignsTable campaigns={campaigns} isLoading/>
                 </BounceLoader>
 
             </div>
@@ -43,6 +49,9 @@ class OverviewPage extends Component {
     return (
         <div className="page page--campaigns">
 
+            <CampaignsTotal />
+            <br />
+            <br />
             <CampaignsChart data={campaignsChart} />
             <br />
             <br />

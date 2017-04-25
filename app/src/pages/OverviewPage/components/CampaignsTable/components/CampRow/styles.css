@@ -141,15 +141,6 @@
         display: flex;
     }
 }
-.camp-row--ok-spend .camp-row__daily-spend {
-    color: #23d978;
-}
-.camp-row--warning-spend .camp-row__daily-spend {
-    color: #fbbb00;
-}
-.camp-row--danger-spend .camp-row__daily-spend {
-    color: #f35973;
-}
 
 /* __actions */
 .camp-row__actions {

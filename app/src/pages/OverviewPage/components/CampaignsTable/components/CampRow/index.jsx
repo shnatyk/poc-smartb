@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 
+import Progress from './components/Progress/index';
 import * as BEM from './../../../../../../helpers/bem';
 import './styles.css';
 
@@ -70,7 +71,7 @@ const CampRow = (props) => {
                 {data.profit}
             </div>
             <div className={blockName + '__daily-spend'}>
-                {data.dailySpend}
+                { Number.isInteger(data.dailySpend) ? <Progress value={data.dailySpend} /> : data.dailySpend }
             </div>
             <div className={blockName + '__actions'}>
                 {btn1}

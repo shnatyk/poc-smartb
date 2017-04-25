@@ -1,0 +1,34 @@
+/* .campaigns-total */
+.list-group.campaigns-total > * {
+    padding: 5px;
+}
+
+@media (min-width: 576px) {
+    .list-group.campaigns-total {
+        flex-direction: row;
+    }
+
+    .list-group.campaigns-total > * {
+        border-left-width: 0px;
+        flex-grow: 1;
+        margin: 0;
+        padding: 12px 10px;
+    }
+    .list-group.campaigns-total > *:first-child {
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 5px;
+        border-left-width: 2px;
+    }
+
+    .list-group.campaigns-total > *:last-child {
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .list-group.campaigns-total > * {
+        padding: 12px 20px;
+    }
+}
+

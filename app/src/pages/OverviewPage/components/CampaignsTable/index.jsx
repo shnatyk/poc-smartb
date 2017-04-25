@@ -93,7 +93,7 @@ function campaignToCampRow(campaign) {
         status: campaign.isActive.toString(),
         name: campaign.name,
         clicks: campaign.total.clicks.toString(),
-        dailySpend: campaign.total.dailySpend * 100 + '%',
+        dailySpend: campaign.total.dailySpend * 100,
         impressions: campaign.total.impressions + 'M',
         profit: '$' + campaign.total.profit,
         revenue: '$' + campaign.total.revenue,

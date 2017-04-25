@@ -1,0 +1,62 @@
+.total {
+    color: #8997a3;
+    padding: 10px 0;
+    width: 100%;
+}
+
+/* --red */
+.total--red {
+    color: #f14f6b;
+}
+
+/* --violet */
+.total--violet {
+    color: #bc71ff;
+}
+
+/* --yellow */
+.total--yellow {
+    color: #fbbb00;
+}
+
+/* --blue */
+.total--blue {
+    color: #218df6;
+}
+
+/* --green */
+.total--green {
+    color: #2bdd81;
+}
+
+/* __val */
+.total__val {
+    font-size: 21px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-align: center;
+}
+@media (min-width: 576px) {
+    .total__val {
+        font-size: 24px;
+        margin-bottom: 6px;
+    }
+}
+@media (min-width: 576px) {
+    .total__val {
+        font-size: 28px;
+    }
+}
+
+/* __label */
+.total__label {
+    color: #a2adb6;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+@media (min-width: 576px) {
+    .total__label {
+        font-size: 13px;
+    }
+}

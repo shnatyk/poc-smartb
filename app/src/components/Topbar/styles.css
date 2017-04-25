@@ -17,3 +17,29 @@
         display: block;
     }
 }
+
+/* __logo */
+.topbar__logo {
+    display: flex;
+    justify-content: center;
+}
+@media (min-width: 768px) {
+    .topbar__logo  {
+        align-items: center;
+    }
+}
+
+
+/* __logo-txt */
+.topbar__logo-txt {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.topbar__logo-txt:focus,
+.topbar__logo-txt:hover {
+    color: #fff;
+    text-decoration: none;
+}

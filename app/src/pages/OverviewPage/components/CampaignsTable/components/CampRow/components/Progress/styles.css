@@ -1,0 +1,19 @@
+.progress {
+    border-radius: 4px;
+    width: 100%;
+}
+
+.progress-bar {
+    height: 8px;
+}
+
+.camp-row--ok-spend .progress-bar {
+    background: #23d978;
+}
+.camp-row--warning-spend .progress-bar {
+    background: #fbbb00;
+}
+.camp-row--danger-spend .progress-bar {
+    background: #f35973;
+}
+

@@ -33,7 +33,9 @@ const mainNavItems = [
 
 const Topbar = () => (
     <Row className="topbar">
-        <Col xs="12" md="2" className="topbar__logo" />
+        <Col xs="12" md="2" className="topbar__logo">
+            <Logo />
+        </Col>
         <Col xs="12" md="8" className="topbar__menu">
             {mainNavItems.map((item, index) => (
                 <MainNavItem
@@ -46,6 +48,12 @@ const Topbar = () => (
         </Col>
         <Col md="2" className="topbar__profile" />
     </Row>
+);
+
+const Logo = () => (
+    <a href="http://smrtb.com/" className="topbar__logo-txt">
+        smartb
+    </a>
 );
 
 export default Topbar;
