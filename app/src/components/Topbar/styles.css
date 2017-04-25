@@ -22,10 +22,13 @@
 .topbar__logo {
     display: flex;
     justify-content: center;
+    padding-bottom: 10px;
 }
 @media (min-width: 768px) {
     .topbar__logo  {
         align-items: center;
+        justify-content: flex-start;
+        padding-bottom: 32px;
     }
 }
 

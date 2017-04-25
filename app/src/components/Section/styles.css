@@ -11,7 +11,12 @@
 }
 
 .section--top .section__content {
-    padding: 32px 0 130px;
+    padding: 20px 15px 130px;
+}
+@media (min-width: 768px) {
+    .section--top .section__content {
+        padding: 32px 15px 130px;
+    }
 }
 
 /* --main */

@@ -23,7 +23,7 @@ const App = ({ store }) => (
 
                 <Section blockMods={['main']} className="clearfix">
                     <Redirect from="/" to="/overview" />
-                    <Route exact path="/overview" component={OverviewPage} />
+                    <Route exact path="/overview/:status?" component={OverviewPage} />
                     <Route path="/campaigns" component={CampaignsPage} />
                     <Route path="/intelligence" component={IntelligencePage} />
                     <Route path="/support" component={SupportPage} />
@@ -35,7 +35,7 @@ const App = ({ store }) => (
 );
 
 App.propTypes = {
-  store: PropTypes.object.isRequired,
+    store: PropTypes.object.isRequired,
 };
 
 export default App;

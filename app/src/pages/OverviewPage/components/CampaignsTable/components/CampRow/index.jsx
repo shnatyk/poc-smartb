@@ -1,32 +1,27 @@
 import React, { PropTypes } from 'react';
+import Toggle from 'react-toggle';
 
 import Progress from './components/Progress/index';
 import * as BEM from './../../../../../../helpers/bem';
 import './styles.css';
 
-const propTypes = {
-    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-    className: PropTypes.string,
-    blockName: PropTypes.string,
-    blockMods: PropTypes.array,
-    data: PropTypes.shape({
-        status: PropTypes.string,
-        name: PropTypes.string,
-        clicks: PropTypes.string,
-        dailySpend: PropTypes.string,
-        impressions: PropTypes.string,
-        profit: PropTypes.string,
-        revenue: PropTypes.string,
-        roi: PropTypes.string,
-        spend: PropTypes.string,
-    }),
-    btn1: PropTypes.node,
-    btn2: PropTypes.node
-};
-
 const defaultProps = {
     tag: 'div',
     blockName: 'camp-row'
+};
+
+const ToggleStatus = (data, onStatusClick) => {
+    switch(data.status) {
+        case 'status':
+            return data.status;
+        default: return (
+            <Toggle
+                defaultChecked={data.status}
+                icons={false}
+                onChange={() => onStatusClick(data.id)}
+            />
+        );
+    }
 };
 
 const CampRow = (props) => {
@@ -38,16 +33,17 @@ const CampRow = (props) => {
         data,
         btn1,
         btn2,
+        onStatusClick,
         ...attributes
     } = props;
 
     const bemClasses = BEM.classify(blockName, blockMods);
     const classes = className ? className + ' ' + bemClasses : bemClasses;
 
-    const campRow = (
+    return (
         <Tag className={classes} {...attributes}>
             <div className={blockName + '__status'}>
-                {data.status}
+                {ToggleStatus(data, onStatusClick)}
             </div>
             <div className={blockName + '__name'}>
                 {data.name}
@@ -79,11 +75,29 @@ const CampRow = (props) => {
             </div>
         </Tag>
     );
+};
 
-    return campRow;
+export default CampRow;
+
+const propTypes = {
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    className: PropTypes.string,
+    blockName: PropTypes.string,
+    blockMods: PropTypes.array,
+    data: PropTypes.shape({
+        status: PropTypes.boolean,
+        name: PropTypes.string,
+        clicks: PropTypes.string,
+        dailySpend: PropTypes.string,
+        impressions: PropTypes.string,
+        profit: PropTypes.string,
+        revenue: PropTypes.string,
+        roi: PropTypes.string,
+        spend: PropTypes.string,
+    }),
+    btn1: PropTypes.node,
+    btn2: PropTypes.node
 };
 
 CampRow.propTypes = propTypes;
 CampRow.defaultProps = defaultProps;
-
-export default CampRow;

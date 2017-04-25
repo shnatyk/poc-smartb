@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-
 import * as actions from './../../actions';
 import { getCampaigns, getCampaignsChart, getIsFetching } from './../../reducers';
 
@@ -13,66 +12,78 @@ import CampaignsTotal from './components/CampaignsTotal/index';
 import './styles.css';
 
 class OverviewPage extends Component {
-  componentDidMount() {
-    this.fetchData();
-  }
+    componentDidMount() {
+        this.fetchData();
+    }
 
-  fetchData() {
-      const { fetchCampaigns } = this.props;
-      fetchCampaigns();
-  }
+    componentDidUpdate(prevProps) {
+        if (this.props.filter !== prevProps.filter) {
+            this.fetchData();
+        }
+    }
 
-  render() {
-    const { isFetching, campaigns, campaignsChart } = this.props;
+    fetchData() {
+        const { fetchCampaigns, filter } = this.props;
+        fetchCampaigns(filter);
+    }
 
-    if (isFetching && !campaigns.length && !campaignsChart.length) {
+    render() {
+        const { isFetching, campaigns, campaignsChart, toggleStatus } = this.props;
+
+        if (isFetching && !campaigns.length && !campaignsChart.length) {
+            return (
+                <div className="page page--campaigns">
+
+                    <BounceLoader show={true}>
+                        <CampaignsTotal isLoading />
+                    </BounceLoader>
+                    <br />
+                    <br />
+                    <BounceLoader show={true}>
+                        <CampaignsChart data={campaignsChart} isLoading />
+                    </BounceLoader>
+                    <br />
+                    <br />
+                    <BounceLoader show={true} >
+                        <CampaignsTable campaigns={campaigns} isLoading/>
+                    </BounceLoader>
+
+                </div>
+            )
+        }
+
         return (
             <div className="page page--campaigns">
 
-                <BounceLoader show={true}>
-                    <CampaignsTotal isLoading />
-                </BounceLoader>
+                <CampaignsTotal />
                 <br />
                 <br />
-                <BounceLoader show={true}>
-                    <CampaignsChart data={campaignsChart} isLoading />
-                </BounceLoader>
+                <CampaignsChart data={campaignsChart} />
                 <br />
                 <br />
-                <BounceLoader show={true} >
-                    <CampaignsTable campaigns={campaigns} isLoading/>
-                </BounceLoader>
+                <CampaignsTable
+                    campaigns={campaigns}
+                    toggleStatus={toggleStatus}
+                />
 
             </div>
-        )
+        );
     }
-    return (
-        <div className="page page--campaigns">
-
-            <CampaignsTotal />
-            <br />
-            <br />
-            <CampaignsChart data={campaignsChart} />
-            <br />
-            <br />
-            <CampaignsTable campaigns={campaigns} />
-
-        </div>
-    );
-  }
 }
 
-const mapStateToProps = (state) => {
-  return {
-      campaigns: getCampaigns(state),
-      campaignsChart: getCampaignsChart(state),
-      isFetching: getIsFetching(state)
-  }
+const mapStateToProps = (state, { match }) => {
+    const filter = match.params.filter || 'active';
+    return {
+        campaigns: getCampaigns(state, filter),
+        campaignsChart: getCampaignsChart(state),
+        isFetching: getIsFetching(state, filter),
+        filter
+    }
 };
 
 OverviewPage = withRouter(connect(
-  mapStateToProps,
-  actions
+    mapStateToProps,
+    actions
 )(OverviewPage));
 
 export default OverviewPage;

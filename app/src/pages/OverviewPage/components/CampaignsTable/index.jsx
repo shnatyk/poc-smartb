@@ -22,7 +22,8 @@ const defaultProps = {
 const CampaignsTable = (props) => {
     const {
         campaigns,
-        isLoading
+        isLoading,
+        toggleStatus
     } = props;
 
     const tableHeaderData = {
@@ -49,7 +50,7 @@ const CampaignsTable = (props) => {
         spend: '12654'
     };
 
-    const campaignsTable = (
+    return (
         <ListGroup>
             <TitleBox tag="li"
                       className="list-group-item"
@@ -67,6 +68,7 @@ const CampaignsTable = (props) => {
                          className="list-group-item"
                          blockMods={blockModsFromCampaign(campaign, [index % 2 !== 0 ? 'odd' : 'even'])}
                          data={campaignToCampRow(campaign)}
+                         onStatusClick={toggleStatus}
                          btn1={<CampBtn icon="align-left" />}
                          btn2={<CampBtn icon="sliders" />}
                 />
@@ -78,8 +80,6 @@ const CampaignsTable = (props) => {
             />
         </ListGroup>
     );
-
-    return campaignsTable;
 };
 
 CampaignsTable.propTypes = propTypes;
@@ -90,7 +90,8 @@ export default CampaignsTable;
 /* helper for passing campaign data to CampRow in proper format */
 function campaignToCampRow(campaign) {
     let tableCampRowData = {
-        status: campaign.isActive.toString(),
+        id: campaign.id,
+        status: campaign.isActive,
         name: campaign.name,
         clicks: campaign.total.clicks.toString(),
         dailySpend: campaign.total.dailySpend * 100,

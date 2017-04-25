@@ -49,7 +49,7 @@ const CampaignsChart = (props) => {
 
     const highCharts = !isLoading ? <Highcharts config={config} /> : '';
 
-    const campaignsChart = (
+    return (
         <ListGroup>
             <TitleBox  tag="li"
                        className="list-group-item"
@@ -61,8 +61,6 @@ const CampaignsChart = (props) => {
             </ListGroupItem>
         </ListGroup>
     );
-
-    return campaignsChart;
 };
 
 CampaignsChart.propTypes = propTypes;
