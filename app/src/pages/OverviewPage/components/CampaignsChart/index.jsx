@@ -21,6 +21,8 @@ const CampaignsChart = (props) => {
 
     const d = new Date();
     const config = {
+        colors: ['#f15c80', '#bc75fc', '#7cb5ec', '#90ed7d', '#f7a35c', '#8085e9', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1', '#434348'],
+
         title: {
             text: null
         },

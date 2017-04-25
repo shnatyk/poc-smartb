@@ -12,15 +12,17 @@ const defaultProps = {
 
 const ToggleStatus = (data, onStatusClick) => {
     switch(data.status) {
-        case 'status':
-            return data.status;
-        default: return (
-            <Toggle
-                defaultChecked={data.status}
-                icons={false}
-                onChange={() => onStatusClick(data.id)}
-            />
-        );
+        case (typeof data.status) !== 'string' :
+            return (
+                <Toggle
+                    defaultChecked={data.status}
+                    icons={false}
+                    onChange={() => onStatusClick(data.id)}
+                />
+            );
+
+            // return data.status;
+        default: return data.status;
     }
 };
 
