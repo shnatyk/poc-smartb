@@ -52,7 +52,7 @@ const Topbar = () => (
 
 const Logo = () => (
     <a href="http://smrtb.com/" className="topbar__logo-txt">
-        smartb
+        demo
     </a>
 );
 
