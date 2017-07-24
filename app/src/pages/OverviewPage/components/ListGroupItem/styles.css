@@ -27,7 +27,7 @@
 .list-group-item.camp-row {
     padding: 15px
 }
-@media (min-width: 576px) {
+@media (min-width: 992px) {
     .list-group-item.camp-row {
         padding: 15px 15px 15px 28px;
     }
@@ -37,7 +37,7 @@
 .list-group-item.camp-row--header {
     padding: 15px
 }
-@media (min-width: 576px) {
+@media (min-width: 992px) {
     .list-group-item.camp-row {
         padding: 20px 15px 20px 28px;
     }
@@ -58,5 +58,3 @@
         padding: 40px 40px 40px 30px;
     }
 }
-
-

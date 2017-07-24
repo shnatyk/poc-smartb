@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { ListGroup } from 'reactstrap';
+import MediaQuery from 'react-responsive';
 
 import CampRow from './components/CampRow/index';
 import CampBtn from './components/CampBtn/index';
@@ -52,32 +53,40 @@ const CampaignsTable = (props) => {
 
     return (
         <ListGroup>
-            <TitleBox tag="li"
-                      className="list-group-item"
-                      icon="bullhorn"
-                      titleTxt="Active Campaigns"
+            <TitleBox
+              tag="li"
+              className="list-group-item"
+              icon="bullhorn"
+              titleTxt="Active Campaigns"
             />
-            <CampRow tag="li"
-                     className="list-group-item"
-                     blockMods={['header']}
-                     data={tableHeaderData}
-            />
+            <MediaQuery minWidth={992}>
+              <CampRow
+                tag="li"
+                className="list-group-item"
+                blockMods={['header']}
+                data={tableHeaderData}
+              />
+            </MediaQuery>
             {!isLoading ? campaigns.map((campaign, index) => (
-                <CampRow key={campaign.id}
-                         tag="li"
-                         className="list-group-item"
-                         blockMods={blockModsFromCampaign(campaign, [index % 2 !== 0 ? 'odd' : 'even'])}
-                         data={campaignToCampRow(campaign)}
-                         onStatusClick={toggleStatus}
-                         btn1={<CampBtn icon="align-left" />}
-                         btn2={<CampBtn icon="sliders" />}
+                <CampRow
+                  key={campaign.id}
+                  tag="li"
+                  className="list-group-item"
+                  blockMods={blockModsFromCampaign(campaign, [index % 2 !== 0 ? 'odd' : 'even'])}
+                  data={campaignToCampRow(campaign)}
+                  onStatusClick={toggleStatus}
+                  btn1={<CampBtn icon="align-left" />}
+                  btn2={<CampBtn icon="sliders" />}
                 />
             )) : ''}
-            <CampRow tag="li"
-                     className="list-group-item"
-                     blockMods={['header']}
-                     data={tableSummaryData}
-            />
+            <MediaQuery minWidth={992}>
+              <CampRow
+                tag="li"
+                className="list-group-item"
+                blockMods={['header']}
+                data={tableSummaryData}
+              />
+            </MediaQuery>
         </ListGroup>
     );
 };
@@ -134,5 +143,3 @@ export function blockModsFromCampaign(campaign, extraMods) {
 
     return blockMods;
 }
-
-
