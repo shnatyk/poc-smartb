@@ -39,6 +39,12 @@
     height: 95px;
     visibility: hidden;
 }
+@media (max-width: 575px) {
+    .main-nav-item__fake-txt {
+        font-size: 12px;
+        height: 75px;
+    }
+}
 
 /* __box */
 .main-nav-item__box {
@@ -47,14 +53,14 @@
     color: #b0b7bd;
     display: flex;
     flex-direction: column;
-    height: 80px;
+    height: 64px;
     justify-content: center;
     left: 50%;
     position: absolute;
     top: 0;
     transform: translateX(-50%);
     transition: .5s all ease;
-    width: 80px;
+    width: 64px;
 }
 @media (min-width: 576px) {
     .main-nav-item__box {

@@ -43,16 +43,10 @@
 
 /* __status */
 .camp-row__status {
-    display: none;
     flex-basis: 35px;
     margin-left: 0;
     margin-right: 15px;
     margin-top: 0;
-}
-@media (min-width: 576px) {
-    .camp-row__status {
-        display: flex;
-    }
 }
 
 /* __name */
